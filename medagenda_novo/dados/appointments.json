@@ -180,5 +180,19 @@
     "created_by": "u1",
     "id": "b049b306",
     "created_at": "2026-05-12T18:46:19.924558"
+  },
+  {
+    "patient_id": "",
+    "doctor_id": "",
+    "room_id": "r1",
+    "date": "2026-05-16",
+    "start_time": "05:59",
+    "end_time": "06:29",
+    "type": "first_visit",
+    "status": "pending",
+    "notes": "",
+    "created_by": "u1",
+    "id": "8def0bc4",
+    "created_at": "2026-05-16T11:59:01.861178"
   }
 ]
