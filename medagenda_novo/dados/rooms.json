@@ -1,0 +1,22 @@
+[
+  {
+    "id": "r1",
+    "name": "Sala 01",
+    "active": true
+  },
+  {
+    "id": "r2",
+    "name": "Sala 02",
+    "active": true
+  },
+  {
+    "id": "r3",
+    "name": "Sala 03",
+    "active": true
+  },
+  {
+    "id": "r4",
+    "name": "Sala 04",
+    "active": true
+  }
+]

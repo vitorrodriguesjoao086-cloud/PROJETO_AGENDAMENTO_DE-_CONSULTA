@@ -1,0 +1,30 @@
+[
+  {
+    "id": "d1",
+    "full_name": "Dr. Daniel Mota",
+    "specialty": "Cardiologia",
+    "crm": "CRM/PE 12345",
+    "available": true
+  },
+  {
+    "id": "d2",
+    "full_name": "Dra. Beatriz Lima",
+    "specialty": "Neurologia",
+    "crm": "CRM/PE 23456",
+    "available": true
+  },
+  {
+    "id": "d3",
+    "full_name": "Dr. Paulo Ramos",
+    "specialty": "Ortopedia",
+    "crm": "CRM/PE 34567",
+    "available": true
+  },
+  {
+    "id": "d4",
+    "full_name": "Dra. Carla Souza",
+    "specialty": "Clinica Geral",
+    "crm": "CRM/PE 45678",
+    "available": true
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "u1",
+    "full_name": "Admin Sistema",
+    "email": "admin@medagenda.com",
+    "password_hash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "role": "admin"
+  },
+  {
+    "id": "u2",
+    "full_name": "Maria Recepcao",
+    "email": "recepcao@medagenda.com",
+    "password_hash": "2b2f7d1f89222d7211f2befb172fa7267c44ef66f9e074a7902dc39ce7c829a2",
+    "role": "receptionist"
+  }
+]

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - MedAgenda{% endblock %}
+{% block page_title %}Agenda de Hoje{% endblock %}
+{% block page_sub %}{{ selected_date|date:"l, d \d\e F \d\e Y" }}{% endblock %}
+
+{% block content %}
+<!-- Metricas -->
+<div class="grid grid-cols-4 gap-4 mb-6">
+  <div class="bg-white rounded-xl border border-gray-200 p-4">
+    <p class="text-xs text-gray-400 mb-1">Consultas hoje</p>
+    <p class="text-2xl font-semibold text-gray-900">{{ metrics.total }}</p>
+  </div>
+  <div class="bg-white rounded-xl border border-gray-200 p-4">
+    <p class="text-xs text-gray-400 mb-1">Confirmadas</p>
+    <p class="text-2xl font-semibold text-green-600">{{ metrics.confirmed }}</p>
+  </div>
+  <div class="bg-white rounded-xl border border-gray-200 p-4">
+    <p class="text-xs text-gray-400 mb-1">Pendentes</p>
+    <p class="text-2xl font-semibold text-amber-500">{{ metrics.pending }}</p>
+  </div>
+  <div class="bg-white rounded-xl border border-gray-200 p-4">
+    <p class="text-xs text-gray-400 mb-1">Cancelamentos</p>
+    <p class="text-2xl font-semibold text-red-500">{{ metrics.cancelled }}</p>
+  </div>
+</div>
+
+<!-- Consultas do dia -->
+<div class="flex items-center justify-between mb-3">
+  <h2 class="text-sm font-medium text-gray-900">Consultas do dia</h2>
+  <a href="{% url 'consultas_lista' %}" class="text-xs text-gray-400 hover:text-gray-600">Ver todas</a>
+</div>
+
+{% if appointments %}
+<div class="space-y-2">
+  {% for appt in appointments %}
+  <a href="{% url 'consulta_detalhe' appt.id %}"
+    class="bg-white rounded-xl border border-gray-200 p-4 flex items-center gap-4 hover:border-gray-300 transition-colors block
+      {% if appt.status == 'urgent' or appt.type == 'urgent' %}urgent-border{% endif %}">
+    <div class="text-center w-12 flex-shrink-0">
+      <div class="text-sm font-semibold text-gray-900">{{ appt.start_time }}</div>
+      <div class="text-xs text-gray-400">{{ appt.end_time }}</div>
+    </div>
+    <div class="flex-1 min-w-0">
+      <div class="text-sm font-medium text-gray-900">{{ appt.patient.full_name }}</div>
+      <div class="text-xs text-gray-400 mt-0.5">
+        {{ appt.doctor.specialty }} - {{ appt.doctor.full_name }} - {{ appt.room.name }}
+      </div>
+    </div>
+    <span class="text-xs px-2 py-1 rounded-full font-medium badge-{{ appt.status }} flex-shrink-0">
+      {% if appt.status == 'confirmed' %}Confirmada
+      {% elif appt.status == 'pending' %}Pendente
+      {% elif appt.status == 'cancelled' %}Cancelada
+      {% elif appt.status == 'urgent' %}Urgente
+      {% else %}{{ appt.status }}{% endif %}
+    </span>
+  </a>
+  {% endfor %}
+</div>
+{% else %}
+<div class="bg-white rounded-xl border border-gray-200 p-12 text-center">
+  <i class="ti ti-calendar-off text-4xl text-gray-200"></i>
+  <p class="text-sm text-gray-400 mt-3">Nenhuma consulta para hoje</p>
+  <a href="{% url 'consulta_nova' %}" class="inline-flex items-center gap-1 mt-4 px-4 py-2 rounded-lg text-sm text-white btn-primary">
+    <i class="ti ti-plus"></i> Agendar consulta
+  </a>
+</div>
+{% endif %}
+{% endblock %}
